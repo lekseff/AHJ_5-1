@@ -1,3 +1,9 @@
+![example workflow](https://github.com/lekseff/AHJ_5_1/actions/workflows/ci_test.yml/badge.svg)
+
+![example workflow](https://github.com/lekseff/AHJ_5_1/actions/workflows/e2e.yml/badge.svg)
+
+![example workflow](https://github.com/lekseff/AHJ_5_1/actions/workflows/deploy.yml/badge.svg)
+
 ### Popovers
 
 #### Легенда
@@ -14,5 +20,3 @@
 У popover'а обязательно должно быть название и текст. Центрироваться он обязательно должен по горизонтали относительно элемента, который вызвал popover'а.
 
 Не забудьте написать авто-тест на взаимодействие с DOM на базе Puppeteer или JSDOM (на ваш выбор).
-
-**Подсказка**: страница, на которой можно "подглядеть" реализацию: https://getbootstrap.com/docs/4.3/components/popovers/. Но мы пока не проходили `translate`, `translate3d`, поэтому делайте позиционирование в px.
