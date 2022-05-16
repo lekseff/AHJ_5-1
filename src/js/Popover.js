@@ -72,25 +72,38 @@ export default class Popover {
     const indent = 7; // Отступ popover от элемента
     const { position } = currentEl.dataset;
     const popOver = this.constructor.createErrorMessage(position, position);
-    currentEl.offsetParent.append(popOver);
+    // currentEl.offsetParent.append(popOver);
+    currentEl.append(popOver);
     this.openPopOver = position;
 
     switch (position) {
       case 'top':
-        popOver.style.top = `${currentEl.offsetTop - popOver.offsetHeight - indent}px`;
-        popOver.style.left = `${currentEl.offsetLeft + currentEl.offsetWidth / 2 - popOver.offsetWidth / 2}px`;
+        // popOver.style.top = `${currentEl.offsetTop - popOver.offsetHeight - indent}px`;
+        // popOver.style.left = `${currentEl.offsetLeft + currentEl.offsetWidth / 2 - popOver.offsetWidth / 2}px`;
+        // Чтоб не уезжало при изменении размера экрана
+        popOver.style.top = `${0 - popOver.offsetHeight - indent}px`;
+        popOver.style.left = `${currentEl.offsetWidth / 2 - popOver.offsetWidth / 2}px`;
         break;
       case 'bottom':
-        popOver.style.top = `${currentEl.offsetTop + currentEl.offsetHeight + indent}px`;
-        popOver.style.left = `${currentEl.offsetTop + currentEl.offsetWidth / 2 - popOver.offsetWidth / 2}`;
+        // popOver.style.top = `${currentEl.offsetTop + currentEl.offsetHeight + indent}px`;
+        // popOver.style.left = `${currentEl.offsetTop + currentEl.offsetWidth / 2 - popOver.offsetWidth / 2}`;
+        // Чтоб не уезжало при изменении размера экрана
+        popOver.style.top = `${currentEl.offsetHeight + indent}px`;
+        popOver.style.left = `${currentEl.offsetWidth / 2 - popOver.offsetWidth / 2}px`;
         break;
       case 'left':
-        popOver.style.top = `${currentEl.offsetTop + currentEl.offsetHeight / 2 - popOver.offsetHeight / 2}px`;
-        popOver.style.left = `${currentEl.offsetLeft - popOver.offsetWidth - indent}px`;
+        // popOver.style.top = `${currentEl.offsetTop + currentEl.offsetHeight / 2 - popOver.offsetHeight / 2}px`;
+        // popOver.style.left = `${currentEl.offsetLeft - popOver.offsetWidth - indent}px`;
+        // Чтоб не уезжало при изменении размера экрана
+        popOver.style.top = `${currentEl.offsetHeight / 2 - popOver.offsetHeight / 2}px`;
+        popOver.style.left = `${currentEl.offsetWidth + indent}px`;
         break;
       case 'right':
-        popOver.style.top = `${currentEl.offsetTop + currentEl.offsetHeight / 2 - popOver.offsetHeight / 2}px`;
-        popOver.style.left = `${currentEl.offsetLeft + currentEl.offsetWidth + indent}px`;
+        // popOver.style.top = `${currentEl.offsetTop + currentEl.offsetHeight / 2 - popOver.offsetHeight / 2}px`;
+        // popOver.style.left = `${currentEl.offsetLeft + currentEl.offsetWidth + indent}px`;
+        // Чтоб не уезжало при изменении размера экрана
+        popOver.style.top = `${currentEl.offsetHeight / 2 - popOver.offsetHeight / 2}px`;
+        popOver.style.left = `${0 - popOver.offsetWidth - indent}px`;
         break;
       default:
     }
